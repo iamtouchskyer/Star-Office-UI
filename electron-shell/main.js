@@ -3,6 +3,7 @@ const { spawn } = require("child_process");
 const fs = require("fs");
 const path = require("path");
 const net = require("net");
+const APP_NAME = "Star Desktop Pet";
 
 let mainWindow = null;
 let miniWindow = null;
@@ -220,6 +221,7 @@ function createWindows(projectRoot) {
       nodeIntegration: false,
     },
   });
+  mainWindow.setTitle(APP_NAME);
 
   miniWindow = new BrowserWindow({
     width: 220,
@@ -238,6 +240,7 @@ function createWindows(projectRoot) {
       nodeIntegration: false,
     },
   });
+  miniWindow.setTitle("Star Mini");
 
   const mainUrl = "http://127.0.0.1:18791/?desktop=1";
   mainWindow.loadURL(mainUrl);
@@ -250,7 +253,7 @@ function createTray(projectRoot) {
   if (!iconPath) return;
   const trayImage = nativeImage.createFromPath(iconPath);
   tray = new Tray(trayImage);
-  tray.setToolTip("Star Desktop Pet");
+  tray.setToolTip(APP_NAME);
 
   const menu = Menu.buildFromTemplate([
     {
@@ -411,4 +414,5 @@ app.on("before-quit", () => {
   }
 });
 
+if (app.setName) app.setName(APP_NAME);
 app.whenReady().then(bootstrap);

@@ -1,5 +1,6 @@
 {
-  "name": "star-desktop-pet-electron",
+  "name": "star-desktop-pet-shell",
+  "productName": "Star Desktop Pet",
   "private": true,
   "version": "0.1.0",
   "main": "main.js",
