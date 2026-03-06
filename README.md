@@ -227,6 +227,8 @@ npm run dev
 - 支持通过环境变量自定义项目路径和 Python 路径
 
 > ⚠️ 这是一个**可选的实验性功能**，目前主要在 macOS 上开发测试。详见 [`desktop-pet/README.md`](./desktop-pet/README.md)。
+>
+> 🙏 桌面宠物版由 [@Zhaohan-Wang](https://github.com/Zhaohan-Wang) 独立开发，感谢他的贡献！
 
 ---
 

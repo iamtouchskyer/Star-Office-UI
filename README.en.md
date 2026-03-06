@@ -226,6 +226,8 @@ npm run dev
 - Customizable via environment variables for project path and Python path
 
 > ⚠️ This is an **optional, experimental feature**, primarily developed and tested on macOS. See [`desktop-pet/README.md`](./desktop-pet/README.md) for details.
+>
+> 🙏 The desktop pet module was independently developed by [@Zhaohan-Wang](https://github.com/Zhaohan-Wang) — thank you for this contribution!
 
 ---
 

@@ -226,6 +226,8 @@ npm run dev
 - 環境変数でプロジェクトパスや Python パスをカスタマイズ可能
 
 > ⚠️ これは**オプションの実験的機能**であり、現在は主に macOS で開発・テストされています。詳細は [`desktop-pet/README.md`](./desktop-pet/README.md) を参照。
+>
+> 🙏 デスクトップペット版は [@Zhaohan-Wang](https://github.com/Zhaohan-Wang) が独自に開発しました。貢献に感謝します！
 
 ---
 
