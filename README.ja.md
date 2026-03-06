@@ -28,7 +28,7 @@ cd backend
 python3 app.py
 ```
 
-**http://127.0.0.1:18791** を開き、状態を切り替えてみましょう：
+**http://127.0.0.1:19000** を開き、状態を切り替えてみましょう：
 
 > ✅ ローカル開発ではデフォルト設定のままで構いませんが、本番環境では `.env.example` を `.env` にコピーし、`FLASK_SECRET_KEY` と `ASSET_DRAWER_PASS` に十分な長さのランダム値を設定することをおすすめします（弱いパスワードやセッション漏洩を防ぐため）。
 
@@ -47,7 +47,7 @@ python3 set_state.py idle "待機中"
 バックエンドが起動している状態で、簡単な smoke test を実行して主要エンドポイントが正常かどうかを確認できます：
 
 ```bash
-python3 scripts/smoke_test.py --base-url http://127.0.0.1:18791
+python3 scripts/smoke_test.py --base-url http://127.0.0.1:19000
 ```
 
 すべてのチェックが `OK` と表示されれば、Star Office UI の基本的なステータスフローが正しく動作していることを意味します。
@@ -89,7 +89,7 @@ cd backend
 python3 app.py
 ```
 
-`http://127.0.0.1:18791` を開く
+`http://127.0.0.1:19000` を開く
 
 ### 4) ステータス切替
 
@@ -103,7 +103,7 @@ python3 set_state.py idle "待機中"
 ### 5) 公開アクセス（任意）
 
 ```bash
-cloudflared tunnel --url http://127.0.0.1:18791
+cloudflared tunnel --url http://127.0.0.1:19000
 ```
 
 `https://xxx.trycloudflare.com` のリンクを共有するだけで OK。
@@ -204,7 +204,7 @@ npm run dev
 ```
 
 - 起動時に Python バックエンドを自動起動
-- デフォルトで `http://127.0.0.1:18791/?desktop=1` を表示
+- デフォルトで `http://127.0.0.1:19000/?desktop=1` を表示
 - 環境変数でプロジェクトパスや Python パスをカスタマイズ可能
 
 > ⚠️ これは**オプションの実験的機能**であり、現在は主に macOS で開発・テストされています。詳細は [`desktop-pet/README.md`](./desktop-pet/README.md) を参照。
@@ -242,6 +242,7 @@ npm run dev
 
 | 日付 | 概要 | 詳細 |
 |------|------|------|
+| 2026-03-06 | 🔌 デフォルトポート変更 — OpenClaw Browser Control との競合を避けるため、バックエンドの既定ポートを 18791 から 19000 に変更。スクリプト、デスクトップシェル、ドキュメントの既定値も同期更新 | [`docs/CHANGELOG_2026-03.md`](./docs/CHANGELOG_2026-03.md) |
 | 2026-03-01 | 🎉 **v2 リビルド公開** — 3 言語対応、資産管理システム、AI 画像生成による模様替え、アート資産全面刷新 | [`docs/FEATURES_NEW_2026-03-01.md`](./docs/FEATURES_NEW_2026-03-01.md) |
 | 2026-03-03 | 📋 オープンソース公開チェックリスト完了 | [`docs/OPEN_SOURCE_RELEASE_CHECKLIST.md`](./docs/OPEN_SOURCE_RELEASE_CHECKLIST.md) |
 | 2026-03-04 | 🔒 P0/P1 セキュリティ強化 — 弱パスワード拒否、バックエンド分割、stale ステータス自動 idle 復帰、スケルトンローディング | [`docs/UPDATE_REPORT_2026-03-04_P0_P1.md`](./docs/UPDATE_REPORT_2026-03-04_P0_P1.md) |

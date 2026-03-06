@@ -14,7 +14,7 @@
         "y": 60,
         "width": 700,
         "height": 500,
-        "url": "http://127.0.0.1:18791/?desktop=1",
+        "url": "http://127.0.0.1:19000/?desktop=1",
         "decorations": false,
         "transparent": true,
         "alwaysOnTop": true,

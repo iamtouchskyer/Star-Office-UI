@@ -4,7 +4,7 @@
 
 ## 已接入能力
 
-- 复用原有前端：`http://127.0.0.1:18791/?desktop=1`
+- 复用原有前端：`http://127.0.0.1:19000/?desktop=1`
 - 复用 mini 页面：`desktop-pet/src/minimized.html`
 - 启动时自动拉起 Python backend（若未运行）
 - 主窗口 / mini 窗口切换
@@ -24,7 +24,7 @@ npm run dev
 - `STAR_PROJECT_ROOT`：项目根目录（默认自动探测）
 - `STAR_BACKEND_PYTHON`：后端 Python 可执行路径
 - `STAR_BACKEND_HOST`：后端主机（默认 `127.0.0.1`）
-- `STAR_BACKEND_PORT`：后端端口（默认 `18791`）
+- `STAR_BACKEND_PORT`：后端端口（默认 `19000`）
 
 ## 说明
 

@@ -52,7 +52,7 @@ DEFAULT_STATE_CANDIDATES = [
 
 # 如果对方本地 /status 需要鉴权，可在这里填写 token（或通过环境变量 OFFICE_LOCAL_STATUS_TOKEN）
 LOCAL_STATUS_TOKEN = os.environ.get("OFFICE_LOCAL_STATUS_TOKEN", "")
-LOCAL_STATUS_URL = os.environ.get("OFFICE_LOCAL_STATUS_URL", "http://127.0.0.1:18791/status")
+LOCAL_STATUS_URL = os.environ.get("OFFICE_LOCAL_STATUS_URL", "http://127.0.0.1:19000/status")
 # 可选：直接指定本地状态文件路径（最简单方案：绕过 /status 鉴权）
 LOCAL_STATE_FILE = os.environ.get("OFFICE_LOCAL_STATE_FILE", "")
 VERBOSE = os.environ.get("OFFICE_VERBOSE", "0") in {"1", "true", "TRUE", "yes", "YES"}

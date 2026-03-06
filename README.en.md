@@ -28,7 +28,7 @@ cd backend
 python3 app.py
 ```
 
-Open **http://127.0.0.1:18791** and try switching states:
+Open **http://127.0.0.1:19000** and try switching states:
 
 ```bash
 python3 set_state.py writing "Organizing documents"
@@ -77,7 +77,7 @@ cd backend
 python3 app.py
 ```
 
-Open `http://127.0.0.1:18791`
+Open `http://127.0.0.1:19000`
 
 > ✅ For local development you can start with the defaults; in production, copy `.env.example` to `.env` and set strong random values for `FLASK_SECRET_KEY` and `ASSET_DRAWER_PASS` to avoid weak passwords and session leaks.
 
@@ -93,7 +93,7 @@ python3 set_state.py idle "Standing by"
 ### 5) Public access (optional)
 
 ```bash
-cloudflared tunnel --url http://127.0.0.1:18791
+cloudflared tunnel --url http://127.0.0.1:19000
 ```
 
 Share the `https://xxx.trycloudflare.com` link with anyone.
@@ -103,7 +103,7 @@ Share the `https://xxx.trycloudflare.com` link with anyone.
 While the backend is running, you can run a lightweight smoke test to confirm that the core endpoints are healthy:
 
 ```bash
-python3 scripts/smoke_test.py --base-url http://127.0.0.1:18791
+python3 scripts/smoke_test.py --base-url http://127.0.0.1:19000
 ```
 
 If all checks report `OK`, your Star Office UI service is wired up correctly for basic status flows.
@@ -204,7 +204,7 @@ npm run dev
 ```
 
 - Auto-launches the Python backend on startup
-- Window points to `http://127.0.0.1:18791/?desktop=1` by default
+- Window points to `http://127.0.0.1:19000/?desktop=1` by default
 - Customizable via environment variables for project path and Python path
 
 > ⚠️ This is an **optional, experimental feature**, primarily developed and tested on macOS. See [`desktop-pet/README.md`](./desktop-pet/README.md) for details.
@@ -242,6 +242,7 @@ This project is co-created and maintained by **Ring Hyacinth** and **Simon Lee**
 
 | Date | Summary | Details |
 |------|---------|---------|
+| 2026-03-06 | 🔌 Default port updated — backend default port changed from 18791 to 19000 to avoid conflicts with OpenClaw Browser Control; synced scripts, desktop shells, and docs defaults | [`docs/CHANGELOG_2026-03.md`](./docs/CHANGELOG_2026-03.md) |
 | 2026-03-01 | 🎉 **v2 Rebuild** — Trilingual support, asset management system, AI room design, full art asset overhaul | [`docs/FEATURES_NEW_2026-03-01.md`](./docs/FEATURES_NEW_2026-03-01.md) |
 | 2026-03-03 | 📋 Open-source release checklist completed | [`docs/OPEN_SOURCE_RELEASE_CHECKLIST.md`](./docs/OPEN_SOURCE_RELEASE_CHECKLIST.md) |
 | 2026-03-04 | 🔒 P0/P1 Security hardening — weak password blocking, backend refactor, stale-state auto-idle, skeleton loading | [`docs/UPDATE_REPORT_2026-03-04_P0_P1.md`](./docs/UPDATE_REPORT_2026-03-04_P0_P1.md) |

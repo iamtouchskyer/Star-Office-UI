@@ -5,8 +5,8 @@ const path = require("path");
 const net = require("net");
 const APP_NAME = "Star Office UI";
 const BACKEND_HOST = process.env.STAR_BACKEND_HOST || "127.0.0.1";
-const rawBackendPort = Number(process.env.STAR_BACKEND_PORT || 18791);
-const BACKEND_PORT = Number.isFinite(rawBackendPort) && rawBackendPort > 0 ? rawBackendPort : 18791;
+const rawBackendPort = Number(process.env.STAR_BACKEND_PORT || 19000);
+const BACKEND_PORT = Number.isFinite(rawBackendPort) && rawBackendPort > 0 ? rawBackendPort : 19000;
 const BACKEND_BASE_URL = `http://${BACKEND_HOST}:${BACKEND_PORT}`;
 
 let mainWindow = null;

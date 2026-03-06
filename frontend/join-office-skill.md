@@ -51,7 +51,7 @@ python3 office-agent-push.py
 ## 本地状态读取优先级
 脚本会按以下顺序自动发现你的状态源（无需手动配置）：
 1. `state.json`（本机 OpenClaw 工作区，自动发现多个候选路径）
-2. `http://127.0.0.1:18791/status`（本地 HTTP 接口）
+2. `http://127.0.0.1:19000/status`（本地 HTTP 接口）
 3. 默认 fallback：idle
 
 如果你的状态文件路径特殊，可以用环境变量指定：

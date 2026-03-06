@@ -2045,20 +2045,20 @@ def assets_upload():
 
 
 if __name__ == "__main__":
-    raw_port = os.environ.get("STAR_BACKEND_PORT", "18791")
+    raw_port = os.environ.get("STAR_BACKEND_PORT", "19000")
     try:
         backend_port = int(raw_port)
     except ValueError:
-        backend_port = 18791
+        backend_port = 19000
     if backend_port <= 0:
-        backend_port = 18791
+        backend_port = 19000
 
     print("=" * 50)
     print("Star Office UI - Backend State Service")
     print("=" * 50)
     print(f"State file: {STATE_FILE}")
     print(f"Listening on: http://0.0.0.0:{backend_port}")
-    if backend_port != 18791:
+    if backend_port != 19000:
         print(f"(Port override: set STAR_BACKEND_PORT to change; current: {raw_port})")
     else:
         print("(Set STAR_BACKEND_PORT to use a different port, e.g. 3009)")

@@ -210,7 +210,7 @@ fn read_state_file(state_path: &PathBuf) -> Result<PetState, String> {
 }
 
 fn read_state_via_backend() -> Result<PetState, String> {
-    let mut stream = std::net::TcpStream::connect("127.0.0.1:18791")
+    let mut stream = std::net::TcpStream::connect("127.0.0.1:19000")
         .map_err(|e| format!("backend connect: {e}"))?;
     let _ = stream.set_read_timeout(Some(Duration::from_millis(1200)));
     let _ = stream.set_write_timeout(Some(Duration::from_millis(1200)));
@@ -441,8 +441,8 @@ fn find_project_root() -> PathBuf {
 }
 
 fn spawn_backend(root: &PathBuf) -> Option<Child> {
-    if std::net::TcpStream::connect("127.0.0.1:18791").is_ok() {
-        eprintln!("ℹ️ backend already running on 127.0.0.1:18791");
+    if std::net::TcpStream::connect("127.0.0.1:19000").is_ok() {
+        eprintln!("ℹ️ backend already running on 127.0.0.1:19000");
         return None;
     }
 
@@ -501,7 +501,7 @@ fn spawn_backend(root: &PathBuf) -> Option<Child> {
 fn wait_backend_ready() -> bool {
     let deadline = Instant::now() + Duration::from_secs(20);
     while Instant::now() < deadline {
-        if std::net::TcpStream::connect("127.0.0.1:18791").is_ok() {
+        if std::net::TcpStream::connect("127.0.0.1:19000").is_ok() {
             return true;
         }
         std::thread::sleep(Duration::from_millis(200));

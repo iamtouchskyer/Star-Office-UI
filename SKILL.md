@@ -39,7 +39,7 @@ python3 app.py
 ```
 
 然后告诉主人：
-> 好了，你现在打开 http://127.0.0.1:18791 就能看到像素办公室了！
+> 好了，你现在打开 http://127.0.0.1:19000 就能看到像素办公室了！
 
 ---
 
@@ -131,7 +131,7 @@ python3 -m venv ../skills/gemini-image-generate/.venv
 推荐先用 Cloudflare Tunnel（最快）：
 
 ```bash
-cloudflared tunnel --url http://127.0.0.1:18791
+cloudflared tunnel --url http://127.0.0.1:19000
 ```
 
 拿到 `https://xxx.trycloudflare.com` 后发给主人，并补一句：

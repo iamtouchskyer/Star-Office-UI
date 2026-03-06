@@ -2,7 +2,7 @@
 """Star Office UI smoke test (non-destructive).
 
 Usage:
-  python3 scripts/smoke_test.py --base-url http://127.0.0.1:18791
+  python3 scripts/smoke_test.py --base-url http://127.0.0.1:19000
 
 Optional env:
   SMOKE_AUTH_BEARER=xxxx   # if your gateway/proxy requires bearer auth
@@ -50,7 +50,7 @@ def req(method: str, url: str, body: dict | None = None, token: str = "") -> tup
 
 def main() -> int:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--base-url", default="http://127.0.0.1:18791", help="Base URL of Star Office UI service")
+    ap.add_argument("--base-url", default="http://127.0.0.1:19000", help="Base URL of Star Office UI service")
     args = ap.parse_args()
 
     base = args.base_url.rstrip("/")

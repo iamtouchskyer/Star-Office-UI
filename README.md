@@ -28,7 +28,7 @@ cd backend
 python3 app.py
 ```
 
-打开 **http://127.0.0.1:18791**，然后试试切状态：
+打开 **http://127.0.0.1:19000**，然后试试切状态：
 
 ```bash
 python3 set_state.py writing "正在整理文档"
@@ -77,7 +77,7 @@ cd backend
 python3 app.py
 ```
 
-打开 `http://127.0.0.1:18791`
+打开 `http://127.0.0.1:19000`
 
 > ✅ 如果你是首次部署，可以先保留默认的开发配置；在生产环境中，请复制 `.env.example` 为 `.env` 并设置强随机的 `FLASK_SECRET_KEY` 与 `ASSET_DRAWER_PASS`，避免弱密码和会话泄露。
 
@@ -93,7 +93,7 @@ python3 set_state.py idle "待命中"
 ### 5) 公网访问（可选）
 
 ```bash
-cloudflared tunnel --url http://127.0.0.1:18791
+cloudflared tunnel --url http://127.0.0.1:19000
 ```
 
 拿到 `https://xxx.trycloudflare.com` 链接即可分享。
@@ -103,7 +103,7 @@ cloudflared tunnel --url http://127.0.0.1:18791
 在后端运行中时，可以执行一次轻量级的 smoke test，确认核心接口是否正常工作：
 
 ```bash
-python3 scripts/smoke_test.py --base-url http://127.0.0.1:18791
+python3 scripts/smoke_test.py --base-url http://127.0.0.1:19000
 ```
 
 如果所有检查都显示 `OK`，说明后端路由和基础状态流转已经就绪。
@@ -204,7 +204,7 @@ npm run dev
 ```
 
 - 启动时自动拉起 Python 后端
-- 窗口默认指向 `http://127.0.0.1:18791/?desktop=1`
+- 窗口默认指向 `http://127.0.0.1:19000/?desktop=1`
 - 支持通过环境变量自定义项目路径和 Python 路径
 
 > ⚠️ 这是一个**可选的实验性功能**，目前主要在 macOS 上开发测试。详见 [`desktop-pet/README.md`](./desktop-pet/README.md)。
@@ -242,6 +242,7 @@ npm run dev
 
 | 日期 | 概要 | 详情 |
 |------|------|------|
+| 2026-03-06 | 🔌 默认端口调整 — 默认后端端口从 18791 调整为 19000，以避开 OpenClaw Browser Control 端口冲突；同步更新脚本、桌面壳与文档默认值 | [`docs/CHANGELOG_2026-03.md`](./docs/CHANGELOG_2026-03.md) |
 | 2026-03-01 | 🎉 **v2 重制发布** — 新增三语支持、资产管理系统、AI 生图装修、美术资产全面替换 | [`docs/FEATURES_NEW_2026-03-01.md`](./docs/FEATURES_NEW_2026-03-01.md) |
 | 2026-03-03 | 📋 开源发布检查清单完成 | [`docs/OPEN_SOURCE_RELEASE_CHECKLIST.md`](./docs/OPEN_SOURCE_RELEASE_CHECKLIST.md) |
 | 2026-03-04 | 🔒 P0/P1 安全加固 — 弱密码拦截、后端模块拆分、stale 状态自动回 idle、首屏骨架屏优化 | [`docs/UPDATE_REPORT_2026-03-04_P0_P1.md`](./docs/UPDATE_REPORT_2026-03-04_P0_P1.md) |
