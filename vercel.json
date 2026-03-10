@@ -1,38 +1,37 @@
 {
-  "builds": [
-    {
-      "src": "api/main.py",
-      "use": "@vercel/python"
-    },
-    {
-      "src": "frontend/**",
-      "use": "@vercel/static"
+  "functions": {
+    "api/index.js": {
+      "maxDuration": 10
     }
-  ],
+  },
   "routes": [
     {
       "src": "/health",
-      "dest": "/api/main.py"
+      "dest": "/api"
     },
     {
-      "src": "/state",
-      "dest": "/api/main.py"
+      "src": "/state", 
+      "dest": "/api"
     },
     {
       "src": "/agents",
-      "dest": "/api/main.py"
+      "dest": "/api"
     },
     {
       "src": "/memo",
-      "dest": "/api/main.py"
+      "dest": "/api"
     },
     {
       "src": "/yesterday-memo",
-      "dest": "/api/main.py"
+      "dest": "/api"
     },
     {
       "src": "/set_state",
-      "dest": "/api/main.py"
+      "dest": "/api"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api"
     },
     {
       "src": "/static/(.*)",
