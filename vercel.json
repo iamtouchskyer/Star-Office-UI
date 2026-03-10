@@ -11,6 +11,18 @@
   ],
   "routes": [
     {
+      "src": "/static/vendor/(.*)",
+      "dest": "/frontend/static/vendor/$1"
+    },
+    {
+      "src": "/static/fonts/(.*)",
+      "dest": "/frontend/static/fonts/$1"
+    },
+    {
+      "src": "/static/(.*)",
+      "dest": "/frontend/static/$1"
+    },
+    {
       "src": "/(css|js|images|fonts|sounds|assets|maps|characters|star_backgrounds)/(.*)",
       "dest": "/frontend/$1/$2"
     },
@@ -35,6 +47,10 @@
       "dest": "/api/main.py"
     },
     {
+      "src": "/yesterday-memo",
+      "dest": "/api/main.py"
+    },
+    {
       "src": "/agents/(.*)",
       "dest": "/api/main.py"
     },
@@ -48,6 +64,10 @@
     },
     {
       "src": "/gemini-house/(.*)",
+      "dest": "/api/main.py"
+    },
+    {
+      "src": "/config/(.*)",
       "dest": "/api/main.py"
     },
     {
