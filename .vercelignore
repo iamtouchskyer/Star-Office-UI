@@ -1,0 +1,20 @@
+# Vercel ignore file
+.git/
+.gitignore
+README.md
+README.*.md
+SKILL.md
+*.sample.*
+docs/
+desktop-pet/
+electron-shell/
+scripts/
+*.py
+!api/*.py
+backend/*.py
+!requirements.txt
+node_modules/
+.env
+.env.*
+*.log
+*.lock

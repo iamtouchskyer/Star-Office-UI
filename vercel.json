@@ -1,0 +1,62 @@
+{
+  "builds": [
+    {
+      "src": "api/main.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "frontend/**",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(css|js|images|fonts|sounds|assets|maps|characters|star_backgrounds)/(.*)",
+      "dest": "/frontend/$1/$2"
+    },
+    {
+      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|webp|svg|ico|json|mp3|ogg|woff|woff2|ttf|eot))$",
+      "dest": "/frontend/$1"
+    },
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/main.py"
+    },
+    {
+      "src": "/state",
+      "dest": "/api/main.py"
+    },
+    {
+      "src": "/health",
+      "dest": "/api/main.py"
+    },
+    {
+      "src": "/memo",
+      "dest": "/api/main.py"
+    },
+    {
+      "src": "/agents/(.*)",
+      "dest": "/api/main.py"
+    },
+    {
+      "src": "/asset-(.*)",
+      "dest": "/api/main.py"
+    },
+    {
+      "src": "/runtime-config/(.*)",
+      "dest": "/api/main.py"
+    },
+    {
+      "src": "/gemini-house/(.*)",
+      "dest": "/api/main.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/frontend/index.html"
+    }
+  ],
+  "env": {
+    "FLASK_ENV": "production",
+    "STAR_OFFICE_MODE": "vercel"
+  }
+}
