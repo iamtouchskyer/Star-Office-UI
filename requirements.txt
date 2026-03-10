@@ -1,2 +1,1 @@
-flask==3.0.2
-pillow==10.4.0
+# No dependencies needed for minimal HTTP handler

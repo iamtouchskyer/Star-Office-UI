@@ -11,27 +11,7 @@
   ],
   "routes": [
     {
-      "src": "/static/vendor/(.*)",
-      "dest": "/frontend/static/vendor/$1"
-    },
-    {
-      "src": "/static/fonts/(.*)",
-      "dest": "/frontend/static/fonts/$1"
-    },
-    {
-      "src": "/static/(.*)",
-      "dest": "/frontend/static/$1"
-    },
-    {
-      "src": "/(css|js|images|fonts|sounds|assets|maps|characters|star_backgrounds)/(.*)",
-      "dest": "/frontend/$1/$2"
-    },
-    {
-      "src": "/(.*\\.(js|css|png|jpg|jpeg|gif|webp|svg|ico|json|mp3|ogg|woff|woff2|ttf|eot))$",
-      "dest": "/frontend/$1"
-    },
-    {
-      "src": "/api/(.*)",
+      "src": "/health",
       "dest": "/api/main.py"
     },
     {
@@ -39,7 +19,7 @@
       "dest": "/api/main.py"
     },
     {
-      "src": "/health",
+      "src": "/agents",
       "dest": "/api/main.py"
     },
     {
@@ -51,32 +31,16 @@
       "dest": "/api/main.py"
     },
     {
-      "src": "/agents/(.*)",
+      "src": "/set_state",
       "dest": "/api/main.py"
     },
     {
-      "src": "/asset-(.*)",
-      "dest": "/api/main.py"
-    },
-    {
-      "src": "/runtime-config/(.*)",
-      "dest": "/api/main.py"
-    },
-    {
-      "src": "/gemini-house/(.*)",
-      "dest": "/api/main.py"
-    },
-    {
-      "src": "/config/(.*)",
-      "dest": "/api/main.py"
+      "src": "/static/(.*)",
+      "dest": "/frontend/static/$1"
     },
     {
       "src": "/(.*)",
-      "dest": "/frontend/index.html"
+      "dest": "/frontend/$1"
     }
-  ],
-  "env": {
-    "FLASK_ENV": "production",
-    "STAR_OFFICE_MODE": "vercel"
-  }
+  ]
 }
