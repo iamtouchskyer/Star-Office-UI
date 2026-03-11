@@ -1,6 +1,3 @@
 module.exports = (req, res) => {
-  res.status(200).json({
-    agents: [],
-    count: 0
-  });
+  res.status(200).json([]);
 }
