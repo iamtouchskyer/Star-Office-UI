@@ -6,11 +6,7 @@
     },
     {
       "source": "/static/(.*)",
-      "destination": "/frontend/$1"
-    },
-    {
-      "source": "/(.*\\.(js|css|png|jpg|jpeg|webp|woff2|ttf|ico))$",
-      "destination": "/frontend/$1"
+      "destination": "/frontend/static/$1"
     }
   ]
 }
