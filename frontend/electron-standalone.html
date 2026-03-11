@@ -7,7 +7,7 @@
     <style>
         @font-face {
             font-family: 'ArkPixel';
-            src: url('/static/fonts/ark-pixel-12px-proportional-zh_cn.ttf.woff2') format('woff2');
+            src: url('/fonts/ark-pixel-12px-proportional-zh_cn.ttf.woff2') format('woff2');
             font-weight: normal;
             font-style: normal;
         }
@@ -788,17 +788,17 @@
         }
         #asset-move-row .btn-move { color:#1f2937; }
         #asset-move-row .btn-move {
-            background-image:url('/static/btn-move-house-sprite.png?v=20260310');
+            background-image:url('/btn-move-house-sprite.png?v=20260310');
         }
         #asset-move-row .btn-home {
-            background-image:url('/static/btn-back-home-sprite.png?v=20260310');
+            background-image:url('/btn-back-home-sprite.png?v=20260310');
         }
         #asset-broker-row { justify-content:center; gap:12px; margin-top:8px; margin-bottom:0; }
         #asset-broker-row .btn-broker {
-            background-image:url('/static/btn-broker-sprite.png?v=20260310');
+            background-image:url('/btn-broker-sprite.png?v=20260310');
         }
         #asset-broker-row .btn-diy {
-            background-image:url('/static/btn-diy-sprite.png?v=20260310');
+            background-image:url('/btn-diy-sprite.png?v=20260310');
         }
         #asset-manual-panel {
             margin-top:0;
@@ -964,7 +964,7 @@
         #control-bar #btn-state-writing,
         #control-bar #btn-state-syncing,
         #control-bar #btn-state-error {
-            background-image: url('/static/btn-state-sprite.png?v=20260310');
+            background-image: url('/btn-state-sprite.png?v=20260310');
             background-color: transparent !important;
             background-repeat: no-repeat;
             background-size: 300% 100%;
@@ -1019,7 +1019,7 @@
         }
         /* 装修房间按钮使用像素精灵皮肤 */
         #control-bar #btn-open-drawer {
-            background-image: url('/static/btn-open-drawer-sprite.png?v=20260310') !important;
+            background-image: url('/btn-open-drawer-sprite.png?v=20260310') !important;
             background-color: transparent !important;
             background-repeat: no-repeat !important;
             background-size: 300% 100% !important;
@@ -1174,7 +1174,7 @@
             position: relative;
             width: 460px;
             height: 300px;
-            background-image: url('/static/memo-bg.webp');
+            background-image: url('/memo-bg.webp');
             background-size: cover;
             background-position: center;
             border: 4px solid #0e1119;
@@ -1384,7 +1384,7 @@
             padding: 6px 8px 8px !important;
         }
         body.desktop-shell #memo-panel:not(.collapsed) {
-            background-image: url('/static/memo-bg.webp?v=20260310') !important;
+            background-image: url('/memo-bg.webp?v=20260310') !important;
             background-size: contain !important;
             /* 下移背景图，让主体落在折叠/展开标题条下方 */
             background-position: center 52px !important;
@@ -1761,7 +1761,7 @@
         <button id="lang-btn-cn" onclick="setUILanguage('zh')" style="cursor:pointer;">CN</button>
     </div>
 
-    <script src="/static/vendor/phaser-3.80.1.min.js"></script>
+    <script src="/vendor/phaser-3.80.1.min.js"></script>
     <script>
         // 简易中英文切换
         let uiLang = localStorage.getItem('uiLang') || 'en';
@@ -1971,7 +1971,7 @@
         function ensureMemoBgVisible() {
             const panel = document.getElementById('memo-panel');
             if (!panel) return;
-            panel.style.backgroundImage = "url('/static/memo-bg.webp?v=20260310')";
+            panel.style.backgroundImage = "url('/memo-bg.webp?v=20260310')";
             panel.classList.remove('no-bg');
         }
 
@@ -4870,53 +4870,53 @@ function toggleBrokerPanel() {
 
             // cache-busting to avoid stale background on client/CDN
             // use smaller/new map version provided by user
-            this.load.image('office_bg', '/static/office_bg_small.webp?v=20260310');
-            this.load.spritesheet('star_idle', '/static/star-idle-v5.png?v=20260310', { frameWidth: 256, frameHeight: 256 });
+            this.load.image('office_bg', '/office_bg_small.webp?v=20260310');
+            this.load.spritesheet('star_idle', '/star-idle-v5.png?v=20260310', { frameWidth: 256, frameHeight: 256 });
 
             // Furniture
-            this.load.image('sofa_idle', '/static/sofa-idle-v3.png?v=20260310');
-            this.load.image('sofa_shadow', '/static/sofa-shadow-v1.png?v=20260310');
+            this.load.image('sofa_idle', '/sofa-idle-v3.png?v=20260310');
+            this.load.image('sofa_shadow', '/sofa-shadow-v1.png?v=20260310');
 
             // Decor
-            this.load.spritesheet('plants', '/static/plants-spritesheet.webp?v=20260310', { frameWidth: 160, frameHeight: 160 });
-            this.load.spritesheet('posters', '/static/posters-spritesheet.webp?v=20260310', { frameWidth: 160, frameHeight: 160 });
-            this.load.spritesheet('coffee_machine', '/static/coffee-machine-v3-grid.webp?v=20260310', { frameWidth: 230, frameHeight: 230 });
-            this.load.image('coffee_machine_shadow', '/static/coffee-machine-shadow-v1.png?v=20260310');
-            this.load.spritesheet('serverroom', '/static/serverroom-spritesheet.webp?v=20260310', { frameWidth: 180, frameHeight: 251 });
+            this.load.spritesheet('plants', '/plants-spritesheet.webp?v=20260310', { frameWidth: 160, frameHeight: 160 });
+            this.load.spritesheet('posters', '/posters-spritesheet.webp?v=20260310', { frameWidth: 160, frameHeight: 160 });
+            this.load.spritesheet('coffee_machine', '/coffee-machine-v3-grid.webp?v=20260310', { frameWidth: 230, frameHeight: 230 });
+            this.load.image('coffee_machine_shadow', '/coffee-machine-shadow-v1.png?v=20260310');
+            this.load.spritesheet('serverroom', '/serverroom-spritesheet.webp?v=20260310', { frameWidth: 180, frameHeight: 251 });
 
             // Error / bug animation: 180x180, 96 frames (repacked grid)
-            this.load.spritesheet('error_bug', '/static/error-bug-spritesheet-grid.webp?v=20260310', { frameWidth: 220, frameHeight: 220 });
+            this.load.spritesheet('error_bug', '/error-bug-spritesheet-grid.webp?v=20260310', { frameWidth: 220, frameHeight: 220 });
 
             // 运行时 Gemini 配置（用于搬家/中介生图）
             this.geminiConfig = { hasKey: false, model: 'gemini-3.1-flash-image-preview' };
 
             // Cat spritesheet: 160x160, 4x4=16 cats
-            this.load.spritesheet('cats', '/static/cats-spritesheet.webp?v=20260310', { frameWidth: 160, frameHeight: 160 });
+            this.load.spritesheet('cats', '/cats-spritesheet.webp?v=20260310', { frameWidth: 160, frameHeight: 160 });
 
             // Desk
             // Star working animation: repacked to grid to avoid WebGL max texture size limits
             // NOTE: prefer WebP for size, PNG fallback
             // 动态替换后按最新素材识别：当前 writing 素材为 300x300 单帧
-            this.load.spritesheet('star_working', '/static/star-working-spritesheet-grid.webp?v=20260310', { frameWidth: 300, frameHeight: 300 });
+            this.load.spritesheet('star_working', '/star-working-spritesheet-grid.webp?v=20260310', { frameWidth: 300, frameHeight: 300 });
 
             // Sync state animation (256x256, 多帧): 非同步显示首帧，同步从第2帧循环
-            this.load.spritesheet('sync_anim', '/static/sync-animation-v3-grid.webp?v=20260310', { frameWidth: 256, frameHeight: 256 });
+            this.load.spritesheet('sync_anim', '/sync-animation-v3-grid.webp?v=20260310', { frameWidth: 256, frameHeight: 256 });
 
             // Memo background image
             // memo 底图固定走 png，避免某些端 webp 透明通道异常导致“底图丢失”
-            this.load.image('memo_bg', '/static/memo-bg.webp?v=20260310');
+            this.load.image('memo_bg', '/memo-bg.webp?v=20260310');
             // Desk v2 (webp only)
-            this.load.image('desk_v2', '/static/desk-v3.webp?v=20260310');
+            this.load.image('desk_v2', '/desk-v3.webp?v=20260310');
             // Flower spritesheet (65x65, 16 frames)
-            this.load.spritesheet('flowers', '/static/flowers-bloom-v2.webp?v=20260310', { frameWidth: FLOWERS_FRAME_W, frameHeight: FLOWERS_FRAME_H });
+            this.load.spritesheet('flowers', '/flowers-bloom-v2.webp?v=20260310', { frameWidth: FLOWERS_FRAME_W, frameHeight: FLOWERS_FRAME_H });
 
             // Guest/Demo agent sprites
-            this.load.spritesheet('guest_anim_1', '/static/guest_anim_1.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
-            this.load.spritesheet('guest_anim_2', '/static/guest_anim_2.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
-            this.load.spritesheet('guest_anim_3', '/static/guest_anim_3.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
-            this.load.spritesheet('guest_anim_4', '/static/guest_anim_4.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
-            this.load.spritesheet('guest_anim_5', '/static/guest_anim_5.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
-            this.load.spritesheet('guest_anim_6', '/static/guest_anim_6.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
+            this.load.spritesheet('guest_anim_1', '/guest_anim_1.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
+            this.load.spritesheet('guest_anim_2', '/guest_anim_2.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
+            this.load.spritesheet('guest_anim_3', '/guest_anim_3.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
+            this.load.spritesheet('guest_anim_4', '/guest_anim_4.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
+            this.load.spritesheet('guest_anim_5', '/guest_anim_5.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
+            this.load.spritesheet('guest_anim_6', '/guest_anim_6.webp?v=20260310', { frameWidth: 32, frameHeight: 32 });
         }
 
         function create() {
