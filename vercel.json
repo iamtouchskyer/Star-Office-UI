@@ -1,8 +1,28 @@
 {
   "rewrites": [
     {
-      "source": "/static/:path*",
-      "destination": "/:path*"
+      "source": "/",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/status",
+      "destination": "/api/state"
+    },
+    {
+      "source": "/agents",
+      "destination": "/api/agents"
+    },
+    {
+      "source": "/yesterday-memo",
+      "destination": "/api/yesterday_memo"
+    },
+    {
+      "source": "/assets/list",
+      "destination": "/api/assets/list"
+    },
+    {
+      "source": "/assets/auth/status",
+      "destination": "/api/assets/auth/status"
     }
   ]
 }
