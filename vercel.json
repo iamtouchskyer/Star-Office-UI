@@ -1,22 +1,11 @@
 {
-  "functions": {
-    "api/agents.py": {
-      "runtime": "python3.9"
-    },
-    "api/agent-push.py": {
-      "runtime": "python3.9"
-    },
-    "api/heartbeat.py": {
-      "runtime": "python3.9"
-    }
-  },
   "rewrites": [
     {
       "source": "/",
       "destination": "/frontend/index.html"
     },
     {
-      "source": "/(.*)",
+      "source": "/(.*\\.(js|css|png|jpg|jpeg|webp|woff2|ttf|ico))$",
       "destination": "/frontend/$1"
     }
   ]
