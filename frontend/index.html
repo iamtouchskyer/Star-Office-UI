@@ -2376,7 +2376,7 @@
                 const timer = setInterval(draw, 120);
                 assetThumbTimers.push(timer);
             };
-            img.src = `/static/${item.path}?t=${Date.now()}`;
+            img.src = `/${item.path}?t=${Date.now()}`;
         }
 
         function isAssetHidden(path) {
@@ -2480,7 +2480,7 @@
                     ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
                     tryAnimateAssetThumb(it);
                 };
-                img.src = `/static/${it.path}?t=${Date.now()}`;
+                img.src = `/${it.path}?t=${Date.now()}`;
             });
         }
 
@@ -2582,7 +2582,7 @@
             const oldKey = sprite.texture.key;
             const ext = path.split('.').pop();
             const newKey = `${oldKey}_live_${Date.now()}`;
-            const url = `/static/${path}?t=${Date.now()}`;
+            const url = `/${path}?t=${Date.now()}`;
 
             return new Promise((resolve) => {
                 try {
