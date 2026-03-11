@@ -59,7 +59,7 @@ async function loadMemo() {
   const memoContent = document.getElementById('memo-content');
 
   try {
-    const response = await fetch('/yesterday-memo?t=' + Date.now(), { cache: 'no-store' });
+    const response = await fetch('/api/yesterday_memo?t=' + Date.now(), { cache: 'no-store' });
     const data = await response.json();
 
     if (data.success && data.memo) {
@@ -257,7 +257,7 @@ const AREA_POSITIONS = {
 
 // 状态控制栏函数（用于测试）
 function setState(state, detail) {
-  fetch('/set_state', {
+  fetch('/api/setstate', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ state, detail })
@@ -701,7 +701,7 @@ function normalizeState(s) {
 }
 
 function fetchStatus() {
-  fetch('/status')
+  fetch('/api/state')
     .then(response => response.json())
     .then(data => {
       const nextState = normalizeState(data.state);
@@ -912,7 +912,7 @@ function showCatBubble() {
 }
 
 function fetchAgents() {
-  fetch('/agents?t=' + Date.now(), { cache: 'no-store' })
+  fetch('/api/agents?t=' + Date.now(), { cache: 'no-store' })
     .then(response => response.json())
     .then(data => {
       if (!Array.isArray(data)) return;
