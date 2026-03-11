@@ -1,16 +1,23 @@
 {
-  "routes": [
+  "functions": {
+    "api/agents.py": {
+      "runtime": "python3.9"
+    },
+    "api/agent-push.py": {
+      "runtime": "python3.9"
+    },
+    "api/heartbeat.py": {
+      "runtime": "python3.9"
+    }
+  },
+  "rewrites": [
     {
-      "src": "/static/(.*)",
-      "dest": "/frontend/static/$1"
+      "source": "/",
+      "destination": "/frontend/index.html"
     },
     {
-      "src": "/(.*\\.js|.*\\.css|.*\\.png|.*\\.jpg|.*\\.webp|.*\\.woff2|.*\\.ttf)$",
-      "dest": "/frontend/$1"
-    },
-    {
-      "src": "/",
-      "dest": "/frontend/index.html"
+      "source": "/(.*)",
+      "destination": "/frontend/$1"
     }
   ]
 }
