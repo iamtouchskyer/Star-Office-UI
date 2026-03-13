@@ -1,9 +1,22 @@
 {
+  "version": 2,
   "cleanUrls": true,
   "trailingSlash": false,
+  "public": true,
+  "functions": {
+    "api/state.py": {
+      "runtime": "python3.9"
+    },
+    "api/agents.py": {
+      "runtime": "python3.9"
+    },
+    "api/yesterday_memo.py": {
+      "runtime": "python3.9"
+    }
+  },
   "headers": [
     {
-      "source": "/(.*)",
+      "source": "/(.*\\.(png|jpg|jpeg|webp|gif|ico|svg|woff2|ttf|otf|js|css))",
       "headers": [
         {
           "key": "Cache-Control",
@@ -12,18 +25,22 @@
       ]
     }
   ],
-  "rewrites": [
+  "routes": [
     {
-      "source": "/status",
-      "destination": "/api/state"
+      "src": "/status",
+      "dest": "/api/state"
     },
     {
-      "source": "/agents", 
-      "destination": "/api/agents"
+      "src": "/agents", 
+      "dest": "/api/agents"
     },
     {
-      "source": "/yesterday-memo",
-      "destination": "/api/yesterday_memo"
+      "src": "/yesterday-memo",
+      "dest": "/api/yesterday_memo"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
     }
   ]
 }

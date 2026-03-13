@@ -4,5 +4,10 @@
   "description": "Star Office UI for AI agents",
   "engines": {
     "node": ">=14.x"
-  }
+  },
+  "scripts": {
+    "build": "echo 'No build needed for static site'",
+    "start": "node -e \"console.log('Static site ready')\""
+  },
+  "type": "module"
 }
