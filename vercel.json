@@ -1,6 +1,4 @@
 {
-  "version": 2,
-  "public": true,
   "functions": {
     "api/state.py": {
       "runtime": "python3.9"
@@ -12,29 +10,29 @@
       "runtime": "python3.9"
     }
   },
-  "routes": [
+  "rewrites": [
     {
-      "src": "/status",
-      "dest": "/api/state"
+      "source": "/status",
+      "destination": "/api/state"
     },
     {
-      "src": "/agents", 
-      "dest": "/api/agents"
+      "source": "/agents", 
+      "destination": "/api/agents"
     },
     {
-      "src": "/yesterday-memo",
-      "dest": "/api/yesterday_memo"
-    },
+      "source": "/yesterday-memo",
+      "destination": "/api/yesterday_memo"
+    }
+  ],
+  "headers": [
     {
-      "src": "/(.*\\.(png|jpg|jpeg|webp|gif|ico|svg|woff2|ttf|otf|js|css))",
-      "headers": {
-        "Cache-Control": "public, max-age=31536000, immutable"
-      },
-      "dest": "/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*\\.(png|jpg|jpeg|webp|gif|ico|svg|woff2|ttf|otf|js|css))",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000"
+        }
+      ]
     }
   ]
 }
