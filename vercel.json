@@ -1,4 +1,6 @@
 {
+  "version": 2,
+  "outputDirectory": "public",
   "functions": {
     "api/state.py": {
       "runtime": "python3.9"
@@ -22,17 +24,6 @@
     {
       "source": "/yesterday-memo",
       "destination": "/api/yesterday_memo"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*\\.(png|jpg|jpeg|webp|gif|ico|svg|woff2|ttf|otf|js|css))",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000"
-        }
-      ]
     }
   ]
 }
