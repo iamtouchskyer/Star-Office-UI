@@ -20,24 +20,17 @@
       ]
     }
   ],
-  "functions": {
-    "api/state.py": {
-      "runtime": "python3.9"
-    },
-    "api/agents.py": {
-      "runtime": "python3.9"
-    },
-    "api/yesterday_memo.py": {
-      "runtime": "python3.9"
-    }
-  },
   "rewrites": [
+    {
+      "source": "/static/:path*",
+      "destination": "/:path*"
+    },
     {
       "source": "/status",
       "destination": "/api/state"
     },
     {
-      "source": "/agents", 
+      "source": "/agents",
       "destination": "/api/agents"
     },
     {
