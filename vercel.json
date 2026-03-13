@@ -1,7 +1,5 @@
 {
   "version": 2,
-  "cleanUrls": true,
-  "trailingSlash": false,
   "public": true,
   "functions": {
     "api/state.py": {
@@ -14,17 +12,6 @@
       "runtime": "python3.9"
     }
   },
-  "headers": [
-    {
-      "source": "/(.*\\.(png|jpg|jpeg|webp|gif|ico|svg|woff2|ttf|otf|js|css))",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
-  ],
   "routes": [
     {
       "src": "/status",
@@ -39,8 +26,15 @@
       "dest": "/api/yesterday_memo"
     },
     {
+      "src": "/.*\\.(png|jpg|jpeg|webp|gif|ico|svg|woff2|ttf|otf|js|css)",
+      "headers": {
+        "Cache-Control": "public, max-age=31536000, immutable"
+      },
+      "dest": "/$0"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/index.html"
     }
   ]
 }
