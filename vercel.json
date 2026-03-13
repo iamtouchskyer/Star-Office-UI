@@ -1,41 +1,4 @@
 {
   "version": 2,
-  "outputDirectory": "public",
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "no-cache, no-store, must-revalidate"
-        },
-        {
-          "key": "Pragma", 
-          "value": "no-cache"
-        },
-        {
-          "key": "Expires",
-          "value": "0"
-        }
-      ]
-    }
-  ],
-  "rewrites": [
-    {
-      "source": "/static/:path*",
-      "destination": "/:path*"
-    },
-    {
-      "source": "/status",
-      "destination": "/api/state"
-    },
-    {
-      "source": "/agents",
-      "destination": "/api/agents"
-    },
-    {
-      "source": "/yesterday-memo",
-      "destination": "/api/yesterday_memo"
-    }
-  ]
+  "outputDirectory": "public"
 }
