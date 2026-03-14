@@ -1,23 +1,34 @@
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
+const { pathToFileURL } = require('url');
 
 const PORT = 3000;
 const PUBLIC_DIR = path.join(__dirname, 'public');
 
-// Load Vercel-style API handlers
-const apiHandlers = {
-  '/status': require('./api/state'),
-  '/api/state': require('./api/state'),
-  '/api/health': require('./api/health'),
-  '/api/test': require('./api/test'),
-  '/api/memo': require('./api/memo'),
-  '/api/setstate': require('./api/setstate'),
-  '/yesterday-memo': require('./api/yesterday_memo'),
-  '/agents': require('./api/agents'),
-  '/assets/list': require('./api/assets/list'),
-  '/assets/auth/status': require('./api/assets/auth/status'),
+// Route -> ESM file mapping
+const apiRoutes = {
+  '/status': './api/state.js',
+  '/api/state': './api/state.js',
+  '/api/health': './api/health.js',
+  '/api/test': './api/test.js',
+  '/api/memo': './api/memo.js',
+  '/api/setstate': './api/setstate.js',
+  '/yesterday-memo': './api/yesterday_memo.js',
+  '/agents': './api/agents.js',
+  '/assets/list': './api/assets/list.js',
+  '/assets/auth/status': './api/assets/auth/status.js',
 };
+
+// Dynamically import ESM handlers
+const apiHandlers = {};
+async function loadHandlers() {
+  for (const [route, file] of Object.entries(apiRoutes)) {
+    const mod = await import(pathToFileURL(path.join(__dirname, file)).href);
+    apiHandlers[route] = mod.default;
+  }
+}
+
 
 const MIME_TYPES = {
   '.html': 'text/html',
@@ -142,6 +153,8 @@ const server = http.createServer((req, rawRes) => {
   });
 });
 
-server.listen(PORT, () => {
-  console.log(`Star Office dev server running at http://localhost:${PORT}`);
+loadHandlers().then(() => {
+  server.listen(PORT, () => {
+    console.log(`Star Office dev server running at http://localhost:${PORT}`);
+  });
 });

@@ -1,4 +1,4 @@
-module.exports = (req, res) => {
+export default function handler(req, res) {
   res.status(200).json({
     date: "2026-03-09",
     content: [
