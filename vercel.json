@@ -5,6 +5,11 @@
     { "source": "/yesterday-memo", "destination": "/api/yesterday_memo" },
     { "source": "/agents", "destination": "/api/agents" },
     { "source": "/set_state", "destination": "/api/setstate" },
+    { "source": "/join-agent", "destination": "/api/join-agent" },
+    { "source": "/agent-push", "destination": "/api/agent-push" },
+    { "source": "/agent-approve", "destination": "/api/agent-approve" },
+    { "source": "/agent-reject", "destination": "/api/agent-reject" },
+    { "source": "/leave-agent", "destination": "/api/leave-agent" },
     { "source": "/assets/list", "destination": "/api/assets/list" },
     { "source": "/assets/auth/status", "destination": "/api/assets/auth/status" }
   ]

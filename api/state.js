@@ -1,7 +1,9 @@
-module.exports = function(req, res) {
-  res.status(200).json({
-    state: process.env.STAR_OFFICE_STATUS || "idle",
-    detail: process.env.STAR_OFFICE_MESSAGE || "AI助手办公室已上线！",
-    timestamp: new Date().toISOString()
-  });
+import { getRedis, KEYS, DEFAULT_STATE, applyAutoIdle } from './_lib/redis.js';
+
+export default async function handler(req, res) {
+  const redis = getRedis();
+  let state = await redis.get(KEYS.STATE);
+  if (!state) state = DEFAULT_STATE;
+  state = applyAutoIdle(state);
+  res.status(200).json(state);
 }

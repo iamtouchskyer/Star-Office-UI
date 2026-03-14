@@ -37,3 +37,5 @@ desktop-pet/src-tauri/icons/*Logo.png
 electron-shell/node_modules/
 electron-shell/release/
 join-keys.json
+.vercel
+node_modules/

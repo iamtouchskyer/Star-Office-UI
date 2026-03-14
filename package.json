@@ -1,6 +1,7 @@
 {
   "name": "star-office-ui",
   "version": "1.0.0",
+  "type": "module",
   "description": "Star Office UI for AI agents",
   "engines": {
     "node": "22.x"
@@ -9,5 +10,8 @@
     "build": "echo 'No build needed for static site'",
     "start": "node -e \"console.log('Static site ready')\""
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@upstash/redis": "^1.37.0"
+  }
 }

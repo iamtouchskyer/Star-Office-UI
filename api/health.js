@@ -1,7 +1,7 @@
-module.exports = function(req, res) {
+export default function handler(req, res) {
   res.status(200).json({
-    service: "star-office-ui",
-    status: "ok",
-    timestamp: new Date().toISOString()
+    service: 'star-office-ui',
+    status: 'ok',
+    timestamp: new Date().toISOString(),
   });
-};
+}
