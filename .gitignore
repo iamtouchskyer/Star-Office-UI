@@ -39,3 +39,4 @@ electron-shell/release/
 join-keys.json
 .vercel
 node_modules/
+.env*.local

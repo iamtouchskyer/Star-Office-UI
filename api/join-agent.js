@@ -31,7 +31,7 @@ export default async function handler(req, res) {
   const agent = {
     agentId,
     name,
-    isMain: false,
+    isMain: name.toLowerCase().includes('main'),
     state: agentState,
     detail: detail || '刚加入办公室',
     updated_at: new Date().toISOString(),
@@ -57,6 +57,17 @@ export default async function handler(req, res) {
   const agents = await redis.get(KEYS.AGENTS) || [];
   agents.push(agent);
   await redis.set(KEYS.AGENTS, agents);
+
+  // If main agent, also update the main state
+  if (agent.isMain) {
+    await redis.set(KEYS.STATE, {
+      state: agentState,
+      detail: detail || '刚加入办公室',
+      progress: 0,
+      updated_at: new Date().toISOString(),
+      ttl_seconds: 300,
+    });
+  }
 
   res.status(200).json({
     ok: true,
