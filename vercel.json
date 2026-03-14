@@ -1,6 +1,11 @@
 {
   "version": 2,
   "outputDirectory": "public",
+  "functions": {
+    "api/**/*.js": {
+      "runtime": "@vercel/node@3"
+    }
+  },
   "rewrites": [
     { "source": "/status", "destination": "/api/state" },
     { "source": "/yesterday-memo", "destination": "/api/yesterday_memo" },

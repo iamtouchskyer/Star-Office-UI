@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Star Office UI for AI agents",
   "engines": {
-    "node": ">=14.x"
+    "node": "18.x"
   },
   "scripts": {
     "build": "echo 'No build needed for static site'",
