@@ -10,11 +10,10 @@ desktop-pet/
 electron-shell/
 scripts/
 *.py
-!api/*.py
-backend/*.py
-!requirements.txt
+backend/
+pyproject.toml
+uv.lock
 node_modules/
 .env
 .env.*
 *.log
-*.lock
