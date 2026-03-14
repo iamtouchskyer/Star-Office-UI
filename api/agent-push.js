@@ -22,27 +22,31 @@ export default async function handler(req, res) {
     return res.status(403).json({ ok: false, error: 'Invalid joinKey for this agent' });
   }
 
-  // Update agent state
+  // Update agent state (skip Redis write if nothing changed)
   const newState = (state && VALID_STATES.has(state)) ? state : agent.state;
+  const newDetail = detail || agent.detail;
+  const changed = agent.state !== newState || agent.detail !== newDetail || (name && agent.name !== name);
+
   agent.state = newState;
-  agent.detail = detail || agent.detail;
+  agent.detail = newDetail;
   agent.area = STATE_TO_AREA[newState] || 'breakroom';
   agent.updated_at = new Date().toISOString();
   agent.lastPushAt = new Date().toISOString();
   if (name) agent.name = name;
 
-  await redis.set(KEYS.AGENTS, agents);
+  if (changed) {
+    await redis.set(KEYS.AGENTS, agents);
 
-  // Also update main state if this looks like the main agent push
-  // (convention: agentId contains "main" or is the only agent)
-  if (agentId.includes('main') || agent.isMain) {
-    await redis.set(KEYS.STATE, {
-      state: newState,
-      detail: detail || agent.detail,
-      progress: 0,
-      updated_at: new Date().toISOString(),
-      ttl_seconds: 300,
-    });
+    // Also update main state if this is the main agent
+    if (agent.isMain) {
+      await redis.set(KEYS.STATE, {
+        state: newState,
+        detail: newDetail,
+        progress: 0,
+        updated_at: new Date().toISOString(),
+        ttl_seconds: 300,
+      });
+    }
   }
 
   res.status(200).json({ ok: true, agentId, area: agent.area });

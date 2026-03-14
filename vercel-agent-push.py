@@ -27,9 +27,16 @@ def read_local_state():
     return "idle", "待命中"
 
 
+_last_state = (None, None)
+
+
 def push_once(vercel_url, agent_id, join_key):
-    """Read local state and push to Vercel"""
+    """Read local state and push to Vercel (skip if unchanged)"""
+    global _last_state
     state, detail = read_local_state()
+
+    if (state, detail) == _last_state:
+        return True  # no change, skip
 
     resp = requests.post(
         f"{vercel_url}/agent-push",
@@ -42,6 +49,7 @@ def push_once(vercel_url, agent_id, join_key):
         timeout=10,
     )
     if resp.status_code == 200:
+        _last_state = (state, detail)
         print(f"✅ [{datetime.now():%H:%M:%S}] {state}: {detail}")
         return True
     elif resp.status_code == 404:
